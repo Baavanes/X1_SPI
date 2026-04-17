@@ -12,6 +12,9 @@ The design supports:
 * Integration with a **Wishbone master and slave architecture**
 * A behavioral neuromorphic processing core with FIFO-based data handling
 
+ <img width="972" height="275" alt="image" src="https://github.com/user-attachments/assets/87dfe8b3-a2e6-41e3-b32d-a4690e9ddac4" />
+
+
 ---
 
 ## 🏗️ Architecture

@@ -11,8 +11,7 @@ The design supports:
 * **Same-frame read response** (low-latency readback)
 * Integration with a **Wishbone master and slave architecture**
 * A behavioral neuromorphic processing core with FIFO-based data handling
-
- <img width="972" height="275" alt="image" src="https://github.com/user-attachments/assets/87dfe8b3-a2e6-41e3-b32d-a4690e9ddac4" />
+<img width="637" height="290" alt="image" src="https://github.com/user-attachments/assets/e923d63c-e19d-4ce8-b021-48187dc5a967" />
 
 
 ---
@@ -23,15 +22,18 @@ The design supports:
 SPI Master
     │
     ▼
-SPI Slave (spi_slave_fast_sameframe_read)
-    │
-    ▼
-Controller (spi_to_wb_ctrl_sameframe_read)
-    │
-    ▼
-Wishbone Master (wb_master_simple)
-    │
-    ▼
+SPI to Wishbone Bridge
+        │
+        ▼
+    SPI Slave (spi_slave_fast_sameframe_read)
+        │
+        ▼
+    Controller (spi_to_wb_ctrl_sameframe_read)
+        │
+        ▼
+    Wishbone Master (wb_master_simple)
+        │
+        ▼
 Wishbone Slave (Neuromorphic_X1_wb)
     │
     ▼
@@ -157,6 +159,8 @@ Behavioral neuromorphic core:
 
 * Full frame required
 * Data sent to WB after frame completion
+<img width="1265" height="297" alt="image" src="https://github.com/user-attachments/assets/9d800f42-b3d4-4f5d-a928-42086800262b" />
+
 
 ---
 
@@ -169,6 +173,8 @@ Behavioral neuromorphic core:
 * Read request triggered early (after 4 bits)
 * WB read starts immediately
 * Data returned in same SPI frame
+<img width="1039" height="245" alt="image" src="https://github.com/user-attachments/assets/db02ea2b-df03-40d9-8595-66bffbe1a2af" />
+
 
 ---
 

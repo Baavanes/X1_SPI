@@ -223,6 +223,7 @@ module spi_slave_fast_sameframe_read (
             rx_shift       <= 32'h0000_0000;
             tx_shift       <= 32'h0000_0000;
             bit_cnt        <= 6'd0;
+						tx_loaded <= 1'b0;
             cmd_type       <= CMD_NONE;
             wr_frame_valid <= 1'b0;
             wr_frame_data  <= 32'h0000_0000;
@@ -234,6 +235,7 @@ module spi_slave_fast_sameframe_read (
             if (spi_cs_n) begin
                 bit_cnt   <= 6'd0;
                 cmd_shift <= 8'h00;
+								tx_loaded <= 1'b0;
                 rx_shift  <= 32'h0000_0000;
                 cmd_type  <= CMD_NONE;
             end else begin
@@ -281,10 +283,8 @@ module spi_slave_fast_sameframe_read (
     always @(negedge spi_sclk or posedge spi_cs_n or negedge rst_n) begin
         if (!rst_n) begin
             spi_miso <= 1'b0;
-						tx_loaded <= 1'b0;
         end else if (spi_cs_n) begin
             spi_miso <= 1'b0;
-						tx_loaded <= 1'b0;
         end else begin
             // first byte dummy
             if (bit_cnt < 6'd8) begin
